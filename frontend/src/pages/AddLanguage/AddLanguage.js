@@ -19,7 +19,7 @@ function AddLanguage(props) {
 
     return (
         <Form onSubmit={onFormSubmit}>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
                 <Form.Label>Add language</Form.Label>
                 <Form.Control
                     type="text"

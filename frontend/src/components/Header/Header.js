@@ -13,6 +13,7 @@ function Header(props) {
                         <Link to="/language" className="nav-link">Java</Link>
                         <Link to="" className="nav-link">JavaScript</Link>
                         <Link to="/language/add" className="nav-link">Add Language</Link>
+                        <Link to="/topic/add" className="nav-link">Add Topic</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

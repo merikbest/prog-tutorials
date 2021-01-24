@@ -2,10 +2,7 @@ package com.gmail.merikbest2015.progtutorials.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -17,4 +14,11 @@ public class Topic {
     private String title;
     private String content;
     private LocalDate creationDate;
+
+    @ManyToOne
+    private Language language;
+
+    public Topic() {
+        this.creationDate = LocalDate.now();
+    }
 }
