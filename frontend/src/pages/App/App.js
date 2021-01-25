@@ -17,9 +17,10 @@ function App() {
                     <Col lg={12} className={"margin-top"}>
                         <Switch>
                             <Route path="/" exact component={Main}/>
-                            <Route path="/language" exact component={Language}/>
                             <Route path="/language/add" exact component={AddLanguage}/>
+                            <Route path="/language/:language" exact component={Language}/>
                             <Route path="/topic/add" exact component={AddTopic}/>
+                            <Route path="*" component={Main}/>
                         </Switch>
                     </Col>
                 </Row>

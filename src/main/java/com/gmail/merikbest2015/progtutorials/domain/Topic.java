@@ -15,9 +15,6 @@ public class Topic {
     private String content;
     private LocalDate creationDate;
 
-    @ManyToOne
-    private Language language;
-
     public Topic() {
         this.creationDate = LocalDate.now();
     }

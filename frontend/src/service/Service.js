@@ -7,6 +7,10 @@ class Service {
         return axios.get(API_BASE_URL + "/language");
     }
 
+    getLanguage(language) {
+        return axios.get(API_BASE_URL + `/language/${language}`);
+    }
+
     addLanguage(language) {
         return axios.post(API_BASE_URL + "/language", language);
     }

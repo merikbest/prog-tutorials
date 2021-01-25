@@ -35,6 +35,13 @@ public class MainController {
 
         languageService.addLanguage(language);
 
-        return new ResponseEntity<>("all OK", HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{language}")
+    public ResponseEntity<?> getLanguage(@PathVariable("language") String programmingLanguage) {
+        Language language = languageService.getLanguage(programmingLanguage);
+
+        return new ResponseEntity<>(language, HttpStatus.OK);
     }
 }

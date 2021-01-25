@@ -1,7 +1,7 @@
 package com.gmail.merikbest2015.progtutorials.service;
 
-import com.gmail.merikbest2015.progtutorials.domain.Topic;
+import com.gmail.merikbest2015.progtutorials.dto.TopicDto;
 
 public interface TopicService {
-    void addTopic(Topic topic);
+    void addTopic(TopicDto topic);
 }

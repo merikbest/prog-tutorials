@@ -23,6 +23,11 @@ public class LanguageServiceImpl implements LanguageService {
     }
 
     @Override
+    public Language getLanguage(String programmingLanguage) {
+        return languageRepository.findByProgrammingLanguage(programmingLanguage);
+    }
+
+    @Override
     public void addLanguage(Language language) {
         languageRepository.save(language);
     }

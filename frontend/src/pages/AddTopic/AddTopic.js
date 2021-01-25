@@ -20,7 +20,7 @@ function AddTopic(props) {
         event.preventDefault();
 
         const language = languages.find((language) => language.id === parseInt(languageId));
-        let topic = {title, content, language}
+        let topic = {title, content, languageId: language.id}
 
         Service.addTopic(topic).then((response) => {
             props.history.push("/")

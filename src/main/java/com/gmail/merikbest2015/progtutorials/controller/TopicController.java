@@ -1,6 +1,6 @@
 package com.gmail.merikbest2015.progtutorials.controller;
 
-import com.gmail.merikbest2015.progtutorials.domain.Topic;
+import com.gmail.merikbest2015.progtutorials.dto.TopicDto;
 import com.gmail.merikbest2015.progtutorials.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +20,8 @@ public class TopicController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addTopic(@RequestBody Topic topic) {
-        topicService.addTopic(topic);
+    public ResponseEntity<?> addTopic(@RequestBody TopicDto topicDto) {
+        topicService.addTopic(topicDto);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
