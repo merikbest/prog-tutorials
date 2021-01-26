@@ -8,7 +8,7 @@ function AddTopic(props) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [languages, setLanguages] = useState([]);
-    const [languageId, setLanguageId] = useState( "");
+    const [languageId, setLanguageId] = useState("");
 
     useEffect(() => {
         Service.getLanguages().then((response) => {
@@ -22,9 +22,8 @@ function AddTopic(props) {
         const language = languages.find((language) => language.id === parseInt(languageId));
         let topic = {title, content, languageId: language.id}
 
-        Service.addTopic(topic).then((response) => {
-            props.history.push("/")
-        });
+        Service.addTopic(topic)
+            .then((response) => props.history.push("/"));
     };
 
     return (

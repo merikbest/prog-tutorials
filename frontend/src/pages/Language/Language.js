@@ -6,35 +6,44 @@ import Service from "../../service/Service";
 
 function Language(props) {
     const [topics, setTopics] = useState([]);
-    const [topicContent, setTopicContent] = useState("");
+    const [topicContent, setTopicContent] = useState({
+        id: "",
+        title: "",
+        content: ""
+    });
 
     useEffect(() => {
         Service.getLanguage(props.match.params.language)
             .then((response) => {
                 setTopics(response.data.topics);
-                setTopicContent("");
+                setTopicContent({
+                    id: "",
+                    title: "",
+                    content: ""
+                });
             });
     }, [props.match.params.language]);
 
-    const changeTopicContent = (content) => {
-        setTopicContent(content);
+    const changeTopicContent = (id, title, content) => {
+        setTopicContent({id, title, content});
     };
 
     return (
         <ListGroup>
             <h2>{props.match.params.language}</h2>
             <Row className="mt-5">
-                <Col xs={2}>
-                    {topics && topics.map((topic) => {
+                <Col xs={3}>
+                    {topics.map((topic) => {
                         return (
-                            <ListGroup.Item action onClick={() => changeTopicContent(topic.content)}>
+                            <ListGroup.Item action
+                                            onClick={() => changeTopicContent(topic.id, topic.title, topic.content)}>
                                 {topic.title}
                             </ListGroup.Item>
                         );
                     })}
                 </Col>
                 <Col>
-                    <Topic topicContent={topicContent}/>
+                    {topicContent.id ? <Topic topicContent={topicContent}/> : null}
                 </Col>
             </Row>
         </ListGroup>

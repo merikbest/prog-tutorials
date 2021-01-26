@@ -22,6 +22,11 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
+    public Topic getTopic(Long id) {
+        return topicRepository.findById(id).get();
+    }
+
+    @Override
     public void addTopic(TopicDto topicDto) {
         Language language = languageRepository.getOne(topicDto.getLanguageId());
         Topic topic = new Topic();
@@ -29,6 +34,11 @@ public class TopicServiceImpl implements TopicService {
         topic.setContent(topicDto.getContent());
         language.getTopics().add(topic);
 
+        topicRepository.save(topic);
+    }
+
+    @Override
+    public void editTopic(Topic topic) {
         topicRepository.save(topic);
     }
 }

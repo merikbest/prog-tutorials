@@ -7,6 +7,7 @@ import Main from "../Main/Main";
 import Language from "../Language/Language";
 import AddLanguage from "../AddLanguage/AddLanguage";
 import AddTopic from "../AddTopic/AddTopic";
+import EditTopic from "../EditTopic/EditTopic";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                             <Route path="/language/add" exact component={AddLanguage}/>
                             <Route path="/language/:language" exact component={Language}/>
                             <Route path="/topic/add" exact component={AddTopic}/>
+                            <Route path="/topic/edit/:id" exact component={EditTopic}/>
                             <Route path="*" component={Main}/>
                         </Switch>
                     </Col>

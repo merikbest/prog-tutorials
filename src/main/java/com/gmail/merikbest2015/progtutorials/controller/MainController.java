@@ -35,7 +35,7 @@ public class MainController {
 
         languageService.addLanguage(language);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/{language}")
