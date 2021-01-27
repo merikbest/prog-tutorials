@@ -1,6 +1,7 @@
 package com.gmail.merikbest2015.progtutorials.service.impl;
 
 import com.gmail.merikbest2015.progtutorials.domain.Language;
+import com.gmail.merikbest2015.progtutorials.dto.LanguageDto;
 import com.gmail.merikbest2015.progtutorials.repository.LanguageRepository;
 import com.gmail.merikbest2015.progtutorials.service.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,11 @@ public class LanguageServiceImpl implements LanguageService {
     }
 
     @Override
-    public void addLanguage(Language language) {
+    public void addLanguage(LanguageDto languageDto) {
+        Language language = new Language();
+        language.setProgrammingLanguage(languageDto.getProgrammingLanguage());
+        language.setTopics(languageDto.getTopics());
+
         languageRepository.save(language);
     }
 }

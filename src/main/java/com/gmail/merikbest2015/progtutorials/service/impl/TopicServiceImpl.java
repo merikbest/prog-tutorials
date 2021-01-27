@@ -38,7 +38,11 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public void editTopic(Topic topic) {
+    public void editTopic(TopicDto topicDto) {
+        Topic topic = topicRepository.findById(topicDto.getId()).get();
+        topic.setTitle(topicDto.getTitle());
+        topic.setContent(topicDto.getContent());
+
         topicRepository.save(topic);
     }
 }
